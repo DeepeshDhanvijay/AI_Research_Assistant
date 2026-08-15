@@ -18,7 +18,7 @@ class Settings(BaseSettings):
 
     # Model config — centralized so changing models later means editing one place
     embedding_model: str = "all-MiniLM-L6-v2"
-    llm_model: str = "Qwen/Qwen2.5-Coder-7B-Instruct"  # will revisit for non-code tasks
+    llm_model: str = "Qwen/Qwen2.5-7B-Instruct"  # general-purpose, not the -Coder variant
 
     class Config:
         env_file = ".env"
