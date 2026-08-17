@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+*.pyc
+.env
+data/vector_store/*.pkl
+data/vector_store/*.index
+data/papers/*.pdf
+.git
