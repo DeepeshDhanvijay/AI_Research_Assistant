@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000',
+  baseURL: API_BASE_URL,
 })
 
 export const uploadPaper = (file) => {
@@ -14,11 +16,8 @@ export const uploadPaper = (file) => {
 
 export const getPapers = () => api.get('/papers/')
 
-export default api
-
 export const askQuestion = (query, paperId = null) =>
   api.post('/qa/ask', { query, paper_id: paperId })
-
 
 export const summarizePaper = (paperId) =>
   api.get(`/analysis/summarize/${paperId}`)
@@ -37,3 +36,5 @@ export const getRelationships = (paperId) =>
 
 export const generateLiteratureReview = (paperIds = null) =>
   api.post('/analysis/literature-review', { paper_ids: paperIds })
+
+export default api
